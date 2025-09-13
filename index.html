@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Emphandze Guest House</title>
+</head>
+<body>
+  <header>
+    <h1>Emphandze Guest House</h1>
+    <div class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <a href="#rooms">Rooms</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#events">Events</a>
+      <a href="booking.html">Booking</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+    <div class="hero-left">
+     <a href="index.html">
+      <img src="img/logo.jpg" alt="Emphandze Guest House Logo" class="hero-logo">
+     </a>
+    </div>
+    <div class="hero-right">
+      <h2>Welcome to Emphandze Guest House</h2>
+      <p>Your comfort, our priority — discover a peaceful retreat in the heart of Eswatini.</p>
+      <a href="booking.html" class="btn">Book Now</a>
+    </div>
+  </div>
+  </section>
+
+  <section id="rooms">
+    <h2 class="section-title">Our Rooms</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="img/Standard.jpeg" alt="Standard Room">
+        <div class="card-content">
+          <h3>Standard Room</h3>
+          <p>Cozy and comfortable with essential amenities for a relaxing stay.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/Deluxe.jpeg" alt="Deluxe Room">
+        <div class="card-content">
+          <h3>Deluxe Room</h3>
+          <p>Spacious with added comforts including a work desk and lounge area.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/Executive.jpeg" alt="Executive Suite">
+        <div class="card-content">
+          <h3>Executive Suite</h3>
+          <p>Luxury suite with premium features for an elevated guest experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="amenities">
+    <h2 class="section-title">Amenities</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="img/Bar.jpg" alt="Bar">
+        <div class="card-content">
+          <h3>Bar</h3>
+          <p>Relax with a wide selection of drinks.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/restaurant.jpg" alt="Restaurant">
+        <div class="card-content">
+          <h3>Restaurant</h3>
+          <p>Enjoy delicious meals prepared by our chefs.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/bbq.jpg" alt="BBQ Area">
+        <div class="card-content">
+          <h3>BBQ Area</h3>
+          <p>Outdoor BBQ facilities for your gatherings.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/Conference.jpeg" alt="Conference Room">
+        <div class="card-content">
+          <h3>Conference Room</h3>
+          <p>Fully equipped space for meetings and events.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/Car-wash.jpeg" alt="Car Wash">
+        <div class="card-content">
+          <h3>Car Wash</h3>
+          <p>Convenient car wash services available.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="events">
+    <h2 class="section-title">Events</h2>
+    <p>We host and cater to a variety of events. Visit our <a href="events.html">events page</a> to learn more.</p>
+  </section>
+
+  <section id="location">
+    <h2 class="section-title">Find Us</h2>
+    <p>We are conveniently located and easy to reach. Visit us at our guest house.</p>
+    <!-- Replace with your hotel’s exact coordinates -->
+    
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Emphandze Guest House. All Rights Reserved.</p>
+  </footer>
+
+    <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const overlay = document.getElementById('overlay');
+
+    // Toggle menu
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('show');
+      overlay.classList.toggle('show');
+    });
+
+    // Close when clicking outside or overlay
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('show');
+        overlay.classList.remove('show');
+      }
+    });
+
+    overlay.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('show');
+      overlay.classList.remove('show');
+    });
+
+    // Close when clicking a menu link
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('show');
+        overlay.classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>
+
